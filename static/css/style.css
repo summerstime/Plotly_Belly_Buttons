@@ -7,7 +7,7 @@ body {
 .jumbotron {
   /* background-image: url("../images/background.png"); */
   background-size: 100% 100%; 
-  background-color: rgb(191, 226, 184);
+  background-color: rgb(85, 194, 228);
   opacity: 90%;
   text-align: center;
   
@@ -18,7 +18,7 @@ body {
   /* font-family: "Times New Roman", Times, serif; */
   font-size: 25;
   font-weight:bold;
-  background-color: rgb(191, 226, 184);
+  background-color: rgb(85,194,228);
   text-align: center;
   opacity: 95%;
 }

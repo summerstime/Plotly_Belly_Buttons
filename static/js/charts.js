@@ -83,13 +83,12 @@ function buildCharts(sample) {
 
     var yticks = otuIds.slice(0, 10).reverse();
     // console.log(yticks.map(sampleObj => sampleObj.id == sample));
-
-
+   
     // 8. Create the trace for the bar chart. 
 
     var barData = {
       x: sampleValuesRev,
-      y: otuIdsRev,
+      y: yticks,
       text: otuLabelsRev, otuIdsRev, sampleValuesRev,
       name: "bellies",
       type: "bar",
@@ -137,7 +136,7 @@ function buildCharts(sample) {
       hovertemplate: otuLabels,
       showlegend: false,
       height: 600,
-      width: 1500
+      width: 1850
     };
     // 3. Use Plotly to plot the data with the layout.
     Plotly.newPlot("bubble", [bubbleData], bubbleLayout);
