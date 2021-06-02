@@ -96,6 +96,8 @@ function buildCharts(sample) {
     }
     // console.log(barData);
 
+    var config = {responsive: true}
+
     // 9. Create the layout for the bar chart. 
     var barLayout = {
       title: { text: "Top 10 Bacteria Cultures Found", font: { size: 20, style: 'bold' } },
@@ -107,7 +109,7 @@ function buildCharts(sample) {
     };
     // console.log(barLayout);
     // 10. Use Plotly to plot the data with the layout. 
-    Plotly.newPlot("bar", [barData], barLayout);
+    Plotly.newPlot("bar", [barData], barLayout, config);
 
 
     ////////////////////////   BUBBLE CHART SECTION    ///////////////////////////////////
@@ -187,16 +189,18 @@ function buildCharts(sample) {
       }
     ];
 
+    var config = {responsive: true}
+
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = {
-      width: 600, height: 450,
+      // width: 600, height: 450,
       margin: { t: 25, r: 25, l: 25, b: 25 },
       // paper_bgcolor: "rgb(191,226,184)",
       
     };
 
     // 6. Use Plotly to plot the gauge data and layout.
-    Plotly.newPlot("gauge", gaugeData, gaugeLayout);
+    Plotly.newPlot("gauge", gaugeData, gaugeLayout, config);
   });
 };
 
