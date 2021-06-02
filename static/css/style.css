@@ -1,7 +1,7 @@
 
 body {
   background-image: url("../images/background.png");
-  color: #0c0404;
+  margin: auto;
 }
 
 .jumbotron {
@@ -10,6 +10,7 @@ body {
   background-color: rgb(85, 194, 228);
   opacity: 90%;
   text-align: center;
+  /* max-width: 1750px; */
   
 }
 
@@ -21,6 +22,7 @@ body {
   background-color: rgb(85,194,228);
   text-align: center;
   opacity: 95%;
+  
 }
 
 .panel-heading {

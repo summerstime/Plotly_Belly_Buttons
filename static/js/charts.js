@@ -102,7 +102,8 @@ function buildCharts(sample) {
       xaxis: { title: "", linecolor:'black', mirror: true, linewidth:2  },
       yaxis: { title: "", showtickprefix: 'all', tickprefix: "OTU-", tick0: otuIdsRev[0], type: "category",linecolor:'black', mirror: true, linewidth:2  },
       hovermode: 'closest',
-      hovertemplate: otuLabelsRev
+      hovertemplate: otuLabelsRev,
+      width: 800
     };
     // console.log(barLayout);
     // 10. Use Plotly to plot the data with the layout. 
@@ -135,11 +136,14 @@ function buildCharts(sample) {
       hovermode: 'closest',
       hovertemplate: otuLabels,
       showlegend: false,
-      height: 600,
-      width: 1850
+      // height: 600,
+      // width: 1700
     };
+
+    var config = {responsive: true}
+
     // 3. Use Plotly to plot the data with the layout.
-    Plotly.newPlot("bubble", [bubbleData], bubbleLayout);
+    Plotly.newPlot("bubble", [bubbleData], bubbleLayout, config);
 
 
 
@@ -185,7 +189,7 @@ function buildCharts(sample) {
 
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = {
-      width: 550, height: 450,
+      width: 600, height: 450,
       margin: { t: 25, r: 25, l: 25, b: 25 },
       // paper_bgcolor: "rgb(191,226,184)",
       
