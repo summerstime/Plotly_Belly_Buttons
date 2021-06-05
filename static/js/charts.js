@@ -83,7 +83,7 @@ function buildCharts(sample) {
 
     var yticks = otuIds.slice(0, 10).reverse();
     // console.log(yticks.map(sampleObj => sampleObj.id == sample));
-   
+
     // 8. Create the trace for the bar chart. 
 
     var barData = {
@@ -92,20 +92,30 @@ function buildCharts(sample) {
       text: otuLabelsRev, otuIdsRev, sampleValuesRev,
       name: "bellies",
       type: "bar",
+      marker: { colorscale: [[0.0, "rgb(85,228,197)"],
+      // [0.1, "rgb(215,48,39)"],
+      // [0.2, "rgb(244,109,67)"],
+      // [0.3, "rgb(253,174,97)"],
+      [0.2, "rgb(254,224,144)"],
+      [0.5, "rgb(85,228,226)"],
+      // [0.6, "rgb(171,217,233)"],
+      [0.7, "rgb(116,173,209)"],
+      [0.8, "rgb(85,194,228)"],
+      [1.0, "rgb(85,135,228)"]], reversescale: false, color:sampleValuesRev },
       orientation: "h"
     }
     // console.log(barData);
 
-    var config = {responsive: true}
+    var config = { responsive: true }
 
     // 9. Create the layout for the bar chart. 
     var barLayout = {
       title: { text: "Top 10 Bacteria Cultures Found", font: { size: 20, style: 'bold' } },
-      xaxis: { title: "", linecolor:'black', mirror: true, linewidth:2  },
-      yaxis: { title: "", showtickprefix: 'all', tickprefix: "OTU-", tick0: otuIdsRev[0], type: "category",linecolor:'black', mirror: true, linewidth:2  },
+      xaxis: { title: "", linecolor: 'black', mirror: true, linewidth: 2 },
+      yaxis: { title: "", showtickprefix: 'all', tickprefix: "OTU-", tick0: otuIdsRev[0], type: "category", linecolor: 'black', mirror: true, linewidth: 2 },
       hovermode: 'closest',
       hovertemplate: otuLabelsRev,
-      width: 800
+      width: 675
     };
     // console.log(barLayout);
     // 10. Use Plotly to plot the data with the layout. 
@@ -121,10 +131,7 @@ function buildCharts(sample) {
       mode: 'markers',
       type: 'scatter',
       marker: {
-        // autocolorscale: true,
-        // colorscale: [[0, 'rgb(10,10,150)'], [1, 'rgb(255,255,255)']],
-        // colorscale: [0, 'rgb(10,10,155)'],
-        colorscale: otuIds,
+        colorscale: 'Earth',
         color: otuIds,
         size: sampleValues
       }
@@ -133,8 +140,8 @@ function buildCharts(sample) {
     // 2. Create the layout for the bubble chart.
     var bubbleLayout = {
       title: { text: 'Bacteria Cultures Per Sample', font: { size: 25 } },
-      xaxis: { title: "OTU Identification Number", linecolor:'black', mirror: true, linewidth:2 },
-      yaxis: {linecolor:'black', mirror: true, linewidth:2 },
+      xaxis: { title: "OTU Identification Number", linecolor: 'black', mirror: true, linewidth: 2 },
+      yaxis: { linecolor: 'black', mirror: true, linewidth: 2 },
       hovermode: 'closest',
       hovertemplate: otuLabels,
       showlegend: false,
@@ -142,7 +149,7 @@ function buildCharts(sample) {
       // width: 1700
     };
 
-    var config = {responsive: true}
+    var config = { responsive: true }
 
     // 3. Use Plotly to plot the data with the layout.
     Plotly.newPlot("bubble", [bubbleData], bubbleLayout, config);
@@ -179,24 +186,27 @@ function buildCharts(sample) {
         gauge: {
           axis: { range: [null, 10] },
           steps: [
-            { range: [0, 2], color: "red" },
-            { range: [2, 4], color: "orange" },
-            { range: [4, 6], color: "yellow" },
-            { range: [6, 8], color: "'rgb(153,204,100)'" },
-            { range: [8, 10], color: "green" }
+            { range: [0, 2], color: "'rgb(85,135,228)'" },
+            { range: [2, 4], color: "'rgb(85,168,228)'" },
+            { range: [4, 6], color: "'rgb(85,194,228)'" },
+            { range: [6, 8], color: "'rgb(85,228,226)'" },
+            { range: [8, 10], color: "'rgb(85,228,197)'" }
           ],
+          threshold: {
+            line: {color: "'rgb(125,114,114)'", width: 1 }, thickness: 1, value: wfreqAmt
+          }
         }
       }
     ];
 
-    var config = {responsive: true}
+    var config = { responsive: true }
 
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = {
       // width: 600, height: 450,
       margin: { t: 75, r: 25, l: 25, b: 25 },
-      
-      
+
+
     };
 
     // 6. Use Plotly to plot the gauge data and layout.
